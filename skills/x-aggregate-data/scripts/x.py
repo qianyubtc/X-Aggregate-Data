@@ -584,7 +584,8 @@ class Parser(argparse.ArgumentParser):
     """参数写错时也输出 JSON（和别的错误一样），退出码 2"""
 
     def error(self, message):
-        emit({"error": "参数不对：" + message, "hint": "看用法：python3 x.py %s -h" % (self.prog.split(" ", 1)[1] if " " in self.prog else "")})
+        sub = self.prog.split(" ", 1)[1] + " " if " " in self.prog else ""
+        emit({"error": "参数不对：" + message, "hint": "看用法：python3 x.py %s-h" % sub})
         sys.exit(2)
 
 
