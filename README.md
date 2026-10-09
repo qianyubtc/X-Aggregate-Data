@@ -192,7 +192,7 @@ python3 $X -h                                                            # 全�
 
 ```mermaid
 flowchart LR
-    A["AI Agent<br/>Claude Code · Codex"] -->|调用| B["x.py<br/>在你的电脑上运行"]
+    A["AI Agent<br/>Claude Code · Codex"] -->|调用| B["x.py<br/>本机运行"]
     B -->|实时数据| C[("FxTwitter<br/>公开接口")]
     B -->|中文区统计| D[("蓝不住<br/>开放接口")]
 ```

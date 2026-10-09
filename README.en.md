@@ -192,7 +192,7 @@ Conventions:
 
 ```mermaid
 flowchart LR
-    A["AI Agent<br/>Claude Code · Codex"] -->|calls| B["x.py<br/>runs on your machine"]
+    A["AI Agent<br/>Claude Code · Codex"] -->|calls| B["x.py<br/>runs locally"]
     B -->|live data| C[("FxTwitter<br/>public API")]
     B -->|Chinese X statistics| D[("lanbuzhu<br/>open API")]
 ```
