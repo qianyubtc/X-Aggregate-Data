@@ -155,7 +155,14 @@ python3 $X -h                                                            # 全�
     "id": "20",
     "url": "https://x.com/jack/status/20",
     "created_at": "2006-03-21T20:50:14Z",
-    "author": { "handle": "jack", "name": "jack", "id": "12", "followers": 12488056, "following": 3, "verified": true },
+    "author": {
+      "handle": "jack",
+      "name": "jack",
+      "id": "12",
+      "followers": 12488056,
+      "following": 3,
+      "verified": true
+    },
     "text": "just setting up my twttr",
     "lang": "en",
     "likes": 312077,
@@ -185,15 +192,14 @@ python3 $X -h                                                            # 全�
 
 ```mermaid
 flowchart LR
-    A[AI Agent<br/>Claude Code / Codex] -- 读 SKILL.md<br/>按需调用 --> B[scripts/x.py<br/>Python 标准库]
-    B -- 推文 / 搜索 / 账号 / 时间线 --> C[(FxTwitter<br/>公开接口)]
-    B -- 中文区统计 --> D[(蓝不住<br/>开放接口)]
-    C --> B
-    D --> B
-    B -- 结构化 JSON --> A
+    A["AI Agent<br/>Claude Code · Codex"] -->|调用| B["x.py<br/>在你的电脑上运行"]
+    B -->|实时数据| C[("FxTwitter<br/>公开接口")]
+    B -->|中文区统计| D[("蓝不住<br/>开放接口")]
 ```
 
-脚本运行在**你自己的电脑上**，直接请求数据源，中间没有任何代理或转发服务器。
+1. Agent 读到 `SKILL.md`，知道遇到 X 相关的问题该调用哪个命令。
+2. 脚本在**你自己的电脑上**直接请求数据源，中间没有任何代理或转发服务器。
+3. 脚本把结果整理成紧凑的结构化 JSON 交回 Agent，Agent 再据此回答你。
 
 ## 数据来源与限制
 

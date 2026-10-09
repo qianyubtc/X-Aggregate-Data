@@ -155,7 +155,14 @@ Every command prints one JSON object. Times are UTC (ISO 8601) and empty fields 
     "id": "20",
     "url": "https://x.com/jack/status/20",
     "created_at": "2006-03-21T20:50:14Z",
-    "author": { "handle": "jack", "name": "jack", "id": "12", "followers": 12488056, "following": 3, "verified": true },
+    "author": {
+      "handle": "jack",
+      "name": "jack",
+      "id": "12",
+      "followers": 12488056,
+      "following": 3,
+      "verified": true
+    },
     "text": "just setting up my twttr",
     "lang": "en",
     "likes": 312077,
@@ -185,15 +192,14 @@ Conventions:
 
 ```mermaid
 flowchart LR
-    A[AI Agent<br/>Claude Code / Codex] -- reads SKILL.md<br/>calls on demand --> B[scripts/x.py<br/>Python stdlib]
-    B -- tweets / search / profiles / timelines --> C[(FxTwitter<br/>public API)]
-    B -- Chinese X statistics --> D[(lanbuzhu<br/>open API)]
-    C --> B
-    D --> B
-    B -- structured JSON --> A
+    A["AI Agent<br/>Claude Code · Codex"] -->|calls| B["x.py<br/>runs on your machine"]
+    B -->|live data| C[("FxTwitter<br/>public API")]
+    B -->|Chinese X statistics| D[("lanbuzhu<br/>open API")]
 ```
 
-The script runs **on your own machine** and talks to the data sources directly. There is no relay server in between.
+1. The agent reads `SKILL.md` and knows which command to run for an X-related question.
+2. The script runs **on your own machine** and talks to the data sources directly. There is no relay server in between.
+3. It returns compact, structured JSON to the agent, which uses it to answer you.
 
 ## Data sources and limits
 
